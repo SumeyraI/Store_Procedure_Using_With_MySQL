@@ -29,4 +29,12 @@ public class UserController {
     public Integer get_user_count_proc(){
         return userService.get_user_count_proc();
     }
+    @GetMapping("/getUserNameWithProcedure/{id}")
+    public String get_user_name_by_id_proc(@PathVariable int id){
+        return userService.get_user_name_by_id_proc(id);
+    }
+    @GetMapping("/findUsersByActiveAndDeptWithQuery/{activeState}/{deptNameList}")
+    public List<User> findUsersByActiveAndDeptWithQuery(@PathVariable Boolean activeState,@PathVariable List<String> deptNameList){
+        return userService.findUsersByActiveAndDeptWithQuery(activeState,deptNameList);
+    }
 }
